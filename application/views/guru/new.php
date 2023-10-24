@@ -12,6 +12,14 @@
             <div class="card-body">
                 <form action="<?= base_url($link); ?>" method="post">
                     <div class="form-group">
+                        <label for="nik">User</label>
+                        <select name="id_user" id="id_user" class="form-control">
+                            <?php foreach ($user as $d) : ?>
+                                <option value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?> - <?= $d['nama_role']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="nik">NIK</label>
                         <input type="text" class="form-control" id="nik" name="nik" placeholder="nik" value="<?= set_value('nik'); ?>">
                     </div>

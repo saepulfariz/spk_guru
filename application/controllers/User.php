@@ -9,6 +9,7 @@ class User extends CI_Controller
         parent::__construct();
         cekLogin();
         $this->load->model('UserModel', 'user');
+        $this->load->model('GuruModel', 'guru');
     }
 
     public function index()
@@ -49,6 +50,26 @@ class User extends CI_Controller
             ];
 
             $res = $this->user->save($data);
+
+            if ($data['id_role'] == 3) {
+                $last_id = $this->user->lastId();
+
+                $data_guru = [
+                    'nik' => '10001',
+                    'jk' => 'LAKI-LAKI',
+                    'nama' => $this->input->post('nama_lengkap', true),
+                    'agama' => 'ISLAM',
+                    'pendidikan' => '',
+                    'ttl' => 'Kota, ' . date('d M Y'),
+                    'alamat' => '',
+                    'status' => 'PROGRESS',
+                    'id_user' => $last_id
+                ];
+
+                $res = $this->guru->save($data_guru);
+            }
+
+
             if ($res) {
                 $this->alert->set('success', 'Success', 'Add Success');
             } else {

@@ -12,6 +12,18 @@
                 <form action="<?= base_url($link . '/' . $data['id']); ?>" method="post">
                     <input type='hidden' name='_method' value='PUT' />
                     <div class="form-group">
+                        <label for="nik">User</label>
+                        <select name="id_user" id="id_user" class="form-control">
+                            <?php foreach ($user as $d) : ?>
+                                <?php if ($data['id_user'] == $d['id']) : ?>
+                                    <option selected value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?> - <?= $d['nama_role']; ?></option>
+                                <?php else : ?>
+                                    <option value="<?= $d['id']; ?>"><?= $d['nama_lengkap']; ?> - <?= $d['nama_role']; ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="nik">NIK</label>
                         <input type="text" class="form-control" id="nik" name="nik" placeholder="nik" value="<?= $data['nik']; ?>">
                     </div>

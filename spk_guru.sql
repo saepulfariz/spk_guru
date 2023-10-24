@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Okt 2023 pada 16.23
+-- Waktu pembuatan: 24 Okt 2023 pada 18.09
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -101,9 +101,9 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`id`, `nik`, `nama`, `jk`, `agama`, `pendidikan`, `ttl`, `alamat`, `status`, `id_user`) VALUES
-(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROSESS', 1),
-(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROSESS', 1),
-(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROSESS', 1);
+(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROSESS', 5),
+(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROSESS', 4),
+(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROSESS', 3);
 
 -- --------------------------------------------------------
 
@@ -219,7 +219,10 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `nama_lengkap`, `id_role`) VALUES
 (1, 'admin', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'admin', 1),
-(4, 'guru', '$2y$10$We/Ij/3CGuiteiKgi5tUVugBh4kRRoW5B3IAm3OP4DTpkSHsSaWAy', 'guru', 3);
+(2, 'kepsek', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'Kepala Sekolah', 2),
+(3, 'faishal', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'faishal', 3),
+(4, 'wawan', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'Wawan', 3),
+(5, 'mutia', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'Mutia', 3);
 
 -- --------------------------------------------------------
 
@@ -300,7 +303,7 @@ ALTER TABLE `tb_alternatif`
 -- AUTO_INCREMENT untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_rel_alternatif`
@@ -324,7 +327,7 @@ ALTER TABLE `tb_sub_alternatif`
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

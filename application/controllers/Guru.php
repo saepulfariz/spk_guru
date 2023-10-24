@@ -22,6 +22,7 @@ class Guru extends CI_Controller
         parent::__construct();
         cekLogin();
         $this->load->model('GuruModel', 'model');
+        $this->load->model('UserModel', 'user');
     }
 
     public function index()
@@ -38,6 +39,7 @@ class Guru extends CI_Controller
         $data['link'] = $this->link;
         $data['jk'] = $this->jk;
         $data['agama'] = $this->agama;
+        $data['user'] = $this->user->getUser(3);
         $this->template->load('template/index', $this->view . '/new', $data);
     }
 
@@ -66,7 +68,7 @@ class Guru extends CI_Controller
                 'ttl' => $this->input->post('tempat', true) . ', ' . date('d M Y', strtotime($this->input->post('ttl', true))),
                 'alamat' => $this->input->post('alamat', true),
                 'status' => 'PROGRESS',
-                'id_user' => 1
+                'id_user' => $this->input->post('id_user', true),
             ];
 
             $res = $this->model->save($data);
@@ -93,6 +95,7 @@ class Guru extends CI_Controller
         $data['data'] = $result;
         $data['jk'] = $this->jk;
         $data['agama'] = $this->agama;
+        $data['user'] = $this->user->getUser(3);
         $this->template->load('template/index', $this->view . '/edit', $data);
     }
 
@@ -109,6 +112,7 @@ class Guru extends CI_Controller
             'ttl' => $this->input->post('tempat', true) . ', ' . date('d M Y', strtotime($this->input->post('ttl', true))),
             'alamat' => $this->input->post('alamat', true),
             'status' => 'PROSESS',
+            'id_user' => $this->input->post('id_user', true),
             // 'id_user' => 1
         ];
 

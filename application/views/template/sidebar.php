@@ -28,56 +28,81 @@ $segment2 = $this->uri->segment(2);
     </li>
 
 
-    <li class="nav-item <?= ($segment == 'user') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('user'); ?>">
-            <i class="fas fa-fw fa-users"></i>
-            <span>Kelola User</span>
-        </a>
-    </li>
+    <?php if ($this->session->userdata('id_role') == 1) : ?>
 
-    <li class="nav-item <?= ($segment == 'guru') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('guru'); ?>">
-            <i class="fas fa-fw fa-user-tie"></i>
-            <span>Calon guru</span>
-        </a>
-    </li>
+        <li class="nav-item <?= ($segment == 'user') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('user'); ?>">
+                <i class="fas fa-fw fa-users"></i>
+                <span>Kelola User</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+    <?php if (($this->session->userdata('id_role') == 2) or ($this->session->userdata('id_role') == 1)) : ?>
+
+        <li class="nav-item <?= ($segment == 'guru') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('guru'); ?>">
+                <i class="fas fa-fw fa-user-tie"></i>
+                <span>Calon guru</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+    <?php if ($this->session->userdata('id_role') == 3) : ?>
+        <li class="nav-item <?= ($segment == 'formulir') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('formulir'); ?>">
+                <i class="fas fa-fw fa-user-tie"></i>
+                <span>Formulir</span>
+            </a>
+        </li>
+    <?php endif; ?>
 
 
-    <li class="nav-item <?= ($segment == 'alternatif') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('alternatif'); ?>">
-            <i class="fab fa-fw fa-twitter"></i>
-            <span>Menu Kiteria</span>
-        </a>
-    </li>
+    <?php if ($this->session->userdata('id_role') == 1) : ?>
+        <li class="nav-item <?= ($segment == 'alternatif') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('alternatif'); ?>">
+                <i class="fab fa-fw fa-twitter"></i>
+                <span>Menu Kiteria</span>
+            </a>
+        </li>
 
-    <li class="nav-item <?= ($segment == 'sub_alternatif') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('sub_alternatif'); ?>">
-            <i class="fas fa-fw fa-calendar-check"></i>
-            <!-- <span>Sub Alternatif</span> -->
-            <span>Menu Sub kiteria</span>
-        </a>
-    </li>
+        <li class="nav-item <?= ($segment == 'sub_alternatif') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('sub_alternatif'); ?>">
+                <i class="fas fa-fw fa-calendar-check"></i>
+                <!-- <span>Sub Alternatif</span> -->
+                <span>Menu Sub kiteria</span>
+            </a>
+        </li>
 
-    <li class="nav-item <?= ($segment == 'bobot_alternatif') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('bobot_alternatif'); ?>">
-            <i class="fas fa-fw fa-minus"></i>
-            <span>Menu Nilai Bobot</span>
-        </a>
-    </li>
+        <li class="nav-item <?= ($segment == 'bobot_alternatif') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('bobot_alternatif'); ?>">
+                <i class="fas fa-fw fa-minus"></i>
+                <span>Menu Nilai Bobot</span>
+            </a>
+        </li>
 
-    <li class="nav-item <?= ($segment == 'perhitungan') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('perhitungan'); ?>">
-            <i class="fas fa-fw fa-signal"></i>
-            <span>Menu Perhitungan</span>
-        </a>
-    </li>
+        <li class="nav-item <?= ($segment == 'perhitungan') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('perhitungan'); ?>">
+                <i class="fas fa-fw fa-signal"></i>
+                <span>Menu Perhitungan</span>
+            </a>
+        </li>
+        <li class="nav-item <?= ($segment == 'seleksi') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('seleksi'); ?>">
+                <i class="fas fa-check-double"></i>
+                <span>Proses Seleksi</span>
+            </a>
+        </li>
+    <?php endif; ?>
 
-    <li class="nav-item <?= ($segment == 'seleksi') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('seleksi'); ?>">
-            <i class="fas fa-check-double"></i>
-            <span>Proses Seleksi</span>
-        </a>
-    </li>
+    <?php if ($this->session->userdata('id_role') == 2) : ?>
+        <li class="nav-item <?= ($segment == 'seleksi') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('seleksi'); ?>">
+                <i class="fas fa-check-double"></i>
+                <span>Proses Seleksi</span>
+            </a>
+        </li>
+    <?php endif; ?>
 
     <li class="nav-item <?= ($segment == 'informasi') ? 'active' : ''; ?>">
         <a class="nav-link" href="<?= base_url('informasi'); ?>">

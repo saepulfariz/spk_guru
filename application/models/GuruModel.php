@@ -46,6 +46,18 @@ class GuruModel extends CI_Model
         return $data;
     }
 
+    public function whereUser($id)
+    {
+        $this->db->where('id_user', $id);
+
+        if ($this->returnType == 'array') {
+            $data = $this->db->get($this->table)->row_array();
+        } else {
+            $data = $this->db->get($this->table)->row();
+        }
+        return $data;
+    }
+
     public function findAll()
     {
         $this->db->order_by('id', 'DESC');

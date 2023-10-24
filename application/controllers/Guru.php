@@ -109,7 +109,7 @@ class Guru extends CI_Controller
             'ttl' => $this->input->post('tempat', true) . ', ' . date('d M Y', strtotime($this->input->post('ttl', true))),
             'alamat' => $this->input->post('alamat', true),
             'status' => 'PROSESS',
-            'id_user' => 1
+            // 'id_user' => 1
         ];
 
 

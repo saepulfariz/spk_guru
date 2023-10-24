@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Okt 2023 pada 16.23
+-- Waktu pembuatan: 26 Agu 2023 pada 06.32
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -71,8 +71,8 @@ CREATE TABLE `tb_alternatif` (
 --
 
 INSERT INTO `tb_alternatif` (`id`, `kode`, `nama_alternatif`, `attribute`, `bobot`) VALUES
-(1, 'C01', 'Pendidikan', 'benefit', 0.25),
-(2, 'C02', 'Pengalaman Kerja', 'benefit', 0.3),
+(1, 'C01', 'PENGALAMAN KERJA', 'benefit', 0.3),
+(2, 'C02', 'PENDIDIKAN', 'benefit', 0.25),
 (3, 'C03', 'USIA', 'benefit', 0.1),
 (4, 'C04', 'TES SKILL', 'benefit', 0.2),
 (5, 'C05', 'WAWANCARA', 'benefit', 0.15);
@@ -92,18 +92,17 @@ CREATE TABLE `tb_guru` (
   `pendidikan` varchar(10) NOT NULL,
   `ttl` varchar(128) NOT NULL,
   `alamat` varchar(256) NOT NULL,
-  `status` varchar(128) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `status` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`id`, `nik`, `nama`, `jk`, `agama`, `pendidikan`, `ttl`, `alamat`, `status`, `id_user`) VALUES
-(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROSESS', 1),
-(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROSESS', 1),
-(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROSESS', 1);
+INSERT INTO `tb_guru` (`id`, `nik`, `nama`, `jk`, `agama`, `pendidikan`, `ttl`, `alamat`, `status`) VALUES
+(1, '2018001', 'Arya', 'Perempuan', 'ISLAM', 'D3', 'Jakarta, 11 Maret 1988', 'BATAM', 'PROGRESS'),
+(2, '82929', 'jaaa', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 2023-08-16', 'subang', 'PROSESS'),
+(3, '2029191', 'akau', 'PEREMPUAN', 'HINDU', 'akak', 'bandung, 02 Aug 2023', 'oka', 'PROSESS');
 
 -- --------------------------------------------------------
 
@@ -124,21 +123,16 @@ CREATE TABLE `tb_rel_alternatif` (
 --
 
 INSERT INTO `tb_rel_alternatif` (`id`, `id_guru`, `id_alternatif`, `id_sub_alternatif`, `nilai`) VALUES
-(1, 3, 1, 4, 0),
-(2, 3, 2, 8, 0),
-(3, 3, 3, 10, 0),
-(4, 3, 4, 15, 0),
-(5, 3, 5, 20, 0),
-(6, 2, 1, 2, 0),
-(7, 2, 2, 6, 0),
-(8, 2, 3, 12, 0),
-(9, 2, 4, 14, 0),
-(10, 2, 5, 19, 0),
-(11, 1, 1, 1, 0),
-(12, 1, 2, 7, 0),
-(13, 1, 3, 11, 0),
-(14, 1, 4, 16, 0),
-(15, 1, 5, 18, 0);
+(1, 1, 1, 4, 0),
+(2, 1, 2, 8, 10),
+(3, 1, 3, 10, 20),
+(4, 1, 4, 15, 10),
+(5, 1, 5, 20, 20),
+(16, 3, 1, 3, 0),
+(17, 3, 2, 7, 0),
+(18, 3, 3, 10, 0),
+(19, 3, 4, 15, 0),
+(20, 3, 5, 17, 0);
 
 -- --------------------------------------------------------
 
@@ -178,14 +172,14 @@ CREATE TABLE `tb_sub_alternatif` (
 --
 
 INSERT INTO `tb_sub_alternatif` (`id`, `id_alternatif`, `keterangan`, `nilai`) VALUES
-(1, 1, 'SMA', 25),
-(2, 1, 'D3', 50),
-(3, 1, 'S1', 75),
-(4, 1, 'S2', 100),
-(5, 2, '&lt;1 TAHUN', 25),
-(6, 2, '1-3 TAHUN', 50),
-(7, 2, '3 - 5 TAHUN', 75),
-(8, 2, '> 5 TAHUN', 100),
+(1, 1, '<1 TAHUN', 25),
+(2, 1, '1 - 3 TAHUN', 50),
+(3, 1, '3 - 5 TAHUN', 75),
+(4, 1, '> 5 TAHUN', 100),
+(5, 2, 'SMA', 25),
+(6, 2, 'D3', 50),
+(7, 2, 'S1', 75),
+(8, 2, 'S2', 100),
 (9, 3, '19 - 22 TAHUN', 25),
 (10, 3, '23 - 26 TAHUN', 50),
 (11, 3, '27 - 30 TAHUN', 75),
@@ -218,8 +212,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `username`, `password`, `nama_lengkap`, `id_role`) VALUES
-(1, 'admin', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'admin', 1),
-(4, 'guru', '$2y$10$We/Ij/3CGuiteiKgi5tUVugBh4kRRoW5B3IAm3OP4DTpkSHsSaWAy', 'guru', 3);
+(1, 'admin', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -254,8 +247,7 @@ ALTER TABLE `tb_alternatif`
 -- Indeks untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `tb_rel_alternatif`
@@ -306,7 +298,7 @@ ALTER TABLE `tb_guru`
 -- AUTO_INCREMENT untuk tabel `tb_rel_alternatif`
 --
 ALTER TABLE `tb_rel_alternatif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_role`
@@ -324,7 +316,7 @@ ALTER TABLE `tb_sub_alternatif`
 -- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Alternatif extends CI_Controller
 {
-    private $title = 'Alternatif';
+    private $title = 'Kiteria';
     private $link = 'alternatif';
     private $view = 'alternatif';
     public function __construct()

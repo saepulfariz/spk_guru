@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class BobotAlternatif extends CI_Controller
 {
-    private $title = 'Bobot Alternatif';
+    private $title = 'Nilai Bobot';
     private $link = 'bobot_alternatif';
     private $view = 'bobot_alternatif';
     public function __construct()

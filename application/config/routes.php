@@ -115,3 +115,7 @@ $route['seleksi/(:any)']['post'] = 'seleksi/update/$1';
 
 $route['hasil']['get'] = 'seleksi/index';
 $route['hasil/(:any)']['get'] = 'seleksi/show/$1';
+
+
+$route['informasi']['get'] = 'informasi/index';
+$route['informasi/(:any)']['get'] = 'informasi/show/$1';

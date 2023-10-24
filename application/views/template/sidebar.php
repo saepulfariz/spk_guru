@@ -79,8 +79,8 @@ $segment2 = $this->uri->segment(2);
         </a>
     </li>
 
-    <li class="nav-item <?= ($segment == 'perhitungan') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('perhitungan'); ?>">
+    <li class="nav-item <?= ($segment == 'informasi') ? 'active' : ''; ?>">
+        <a class="nav-link" href="<?= base_url('informasi'); ?>">
             <i class="fas fa-info-circle"></i>
             <span>Informasi Selanjutnya</span>
         </a>

@@ -78,13 +78,13 @@ $route['alternatif/(:any)']['get'] = 'alternatif/edit/$1';
 $route['alternatif/(:any)']['post'] = 'alternatif/update/$1';
 $route['alternatif/(:any)/delete'] = 'alternatif/delete/$1';
 
-$route['sub_alternatif']['get'] = 'subalternatif/index';
-$route['sub_alternatif']['post'] = 'subalternatif/create';
-$route['sub_alternatif/new']['get'] = 'subalternatif/new';
-$route['sub_alternatif/(:any)/edit']['get'] = 'subalternatif/edit/$1';
-$route['sub_alternatif/(:any)']['get'] = 'subalternatif/edit/$1';
-$route['sub_alternatif/(:any)']['post'] = 'subalternatif/update/$1';
-$route['sub_alternatif/(:any)/delete'] = 'subalternatif/delete/$1';
+$route['sub_alternatif']['get'] = 'SubAlternatif/index';
+$route['sub_alternatif']['post'] = 'SubAlternatif/create';
+$route['sub_alternatif/new']['get'] = 'SubAlternatif/new';
+$route['sub_alternatif/(:any)/edit']['get'] = 'SubAlternatif/edit/$1';
+$route['sub_alternatif/(:any)']['get'] = 'SubAlternatif/edit/$1';
+$route['sub_alternatif/(:any)']['post'] = 'SubAlternatif/update/$1';
+$route['sub_alternatif/(:any)/delete'] = 'SubAlternatif/delete/$1';
 
 
 
@@ -97,13 +97,13 @@ $route['guru/(:any)']['post'] = 'guru/update/$1';
 $route['guru/(:any)/delete'] = 'guru/delete/$1';
 
 
-$route['bobot_alternatif']['get'] = 'bobotalternatif/index';
-$route['bobot_alternatif']['post'] = 'bobotalternatif/create';
-$route['bobot_alternatif/new']['get'] = 'bobotalternatif/new';
-$route['bobot_alternatif/(:any)/edit']['get'] = 'bobotalternatif/edit/$1';
-$route['bobot_alternatif/(:any)']['get'] = 'bobotalternatif/edit/$1';
-$route['bobot_alternatif/(:any)']['post'] = 'bobotalternatif/update/$1';
-$route['bobot_alternatif/(:any)/delete'] = 'bobotalternatif/delete/$1';
+$route['bobot_alternatif']['get'] = 'BobotAlternatif/index';
+$route['bobot_alternatif']['post'] = 'BobotAlternatif/create';
+$route['bobot_alternatif/new']['get'] = 'BobotAlternatif/new';
+$route['bobot_alternatif/(:any)/edit']['get'] = 'BobotAlternatif/edit/$1';
+$route['bobot_alternatif/(:any)']['get'] = 'BobotAlternatif/edit/$1';
+$route['bobot_alternatif/(:any)']['post'] = 'BobotAlternatif/update/$1';
+$route['bobot_alternatif/(:any)/delete'] = 'BobotAlternatif/delete/$1';
 
 
 $route['perhitungan']['get'] = 'perhitungan/index';

@@ -101,9 +101,9 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`id`, `nik`, `nama`, `jk`, `agama`, `pendidikan`, `ttl`, `alamat`, `status`, `id_user`) VALUES
-(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROSESS', 5),
-(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROSESS', 4),
-(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROSESS', 3);
+(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROGRESS', 5),
+(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROGRESS', 4),
+(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROGRESS', 3);
 
 -- --------------------------------------------------------
 

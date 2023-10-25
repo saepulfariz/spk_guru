@@ -86,4 +86,17 @@ class GuruModel extends CI_Model
         $this->db->where($this->primaryKey, $id);
         return $this->db->delete($this->table);
     }
+
+    function countGuru($status = null)
+    {
+        if ($status != null) {
+            $this->db->where('status', $status);
+        }
+        if ($this->returnType == 'array') {
+            $data = $this->db->get($this->table)->result_array();
+        } else {
+            $data = $this->db->get($this->table)->result();
+        }
+        return count($data);
+    }
 }

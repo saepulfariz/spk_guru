@@ -55,7 +55,11 @@ class Auth extends CI_Controller
 
 					$this->alert->set('success', 'Success', 'Anda Berhasil Login');
 
-					redirect('dashboard', 'refresh');
+					if ($data_user['id_role'] == 3) {
+						redirect('formulir', 'refresh');
+					} else {
+						redirect('dashboard', 'refresh');
+					}
 				} else {
 					$this->alert->set('warning', 'Warning', 'Password Salah');
 					redirect('auth', 'refresh');

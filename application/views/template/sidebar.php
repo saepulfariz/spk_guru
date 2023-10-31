@@ -20,12 +20,14 @@ $segment2 = $this->uri->segment(2);
     <hr class="sidebar-divider my-0">
 
 
-    <li class="nav-item <?= ($segment == 'dashboard') ? 'active' : ''; ?>">
-        <a class="nav-link" href="<?= base_url('dashboard'); ?>">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-        </a>
-    </li>
+    <?php if ($this->session->userdata('id_role') != 3) : ?>
+        <li class="nav-item <?= ($segment == 'dashboard') ? 'active' : ''; ?>">
+            <a class="nav-link" href="<?= base_url('dashboard'); ?>">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+    <?php endif; ?>
 
 
     <?php if ($this->session->userdata('id_role') == 1) : ?>

@@ -43,6 +43,7 @@ $model_guru = new GuruModel();
                                     <th><?= $d['nama_alternatif']; ?></th>
                                 <?php endforeach; ?>
                                 <th>Status</th>
+                                <th>Dokumen</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -67,7 +68,13 @@ $model_guru = new GuruModel();
                                     <?php endforeach; ?>
                                     <td><?= $d['status']; ?></td>
                                     <td>
-                                        <a class="btn btn-info btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_guru'] . ''); ?>">Detail</a>
+                                        <p>Ijazah : <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $d['lampiran_ijazah']; ?>">Lihat </a></p>
+                                        <p>KTP : <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $d['lampiran_ktp']; ?>">Lihat </a></p>
+                                        <p>Sertifikat : <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $d['lampiran_sertifikat']; ?>">Lihat </a></p>
+                                        <p>Pengalaman : <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $d['lampiran_pengalaman']; ?>">Lihat </a></p>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-info btn-sm mb-2" href="<?= base_url($link . '/' . $d['id_guru'] . '/verifikasi'); ?>">Verifikasi</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

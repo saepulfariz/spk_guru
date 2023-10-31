@@ -12,7 +12,7 @@ class BobotAlternatifModel extends CI_Model
 
     public function getAll($id_guru = null)
     {
-        $this->db->select('tb_rel_alternatif.*, nik, nama, status');
+        $this->db->select('tb_rel_alternatif.*, tb_guru.*');
         if ($id_guru != null) {
             $this->db->where('id_guru', $id_guru);
         }

@@ -87,12 +87,6 @@ $segment2 = $this->uri->segment(2);
                 <span>Menu Perhitungan</span>
             </a>
         </li>
-        <li class="nav-item <?= ($segment == 'seleksi') ? 'active' : ''; ?>">
-            <a class="nav-link" href="<?= base_url('seleksi'); ?>">
-                <i class="fas fa-check-double"></i>
-                <span>Proses Seleksi</span>
-            </a>
-        </li>
     <?php endif; ?>
 
     <?php if ($this->session->userdata('id_role') == 2) : ?>

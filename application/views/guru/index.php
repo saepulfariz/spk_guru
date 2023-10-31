@@ -37,6 +37,7 @@
                                 <td><?= $d['alamat']; ?></td>
                                 <td><?= $d['status']; ?></td>
                                 <td>
+                                    <a class="btn btn-info btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/verifikasi'); ?>">Verifikasi</a>
                                     <a class="btn btn-warning btn-sm mb-2" href="<?= base_url($link . '/' . $d['id'] . '/edit'); ?>">Edit</a>
                                     <a class="btn btn-danger btn-sm mb-2 del-tombol" href="<?= base_url($link . '/' . $d['id'] . '/delete'); ?>">Delete</a>
 

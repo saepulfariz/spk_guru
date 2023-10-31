@@ -92,7 +92,9 @@ $route['guru']['get'] = 'guru/index';
 $route['guru']['post'] = 'guru/create';
 $route['guru/new']['get'] = 'guru/new';
 $route['guru/(:any)/edit']['get'] = 'guru/edit/$1';
+$route['guru/(:any)/verifikasi']['get'] = 'guru/verifikasi/$1';
 $route['guru/(:any)']['get'] = 'guru/edit/$1';
+$route['guru/(:any)/verifikasi']['post'] = 'guru/updateVerifikasi/$1';
 $route['guru/(:any)']['post'] = 'guru/update/$1';
 $route['guru/(:any)/delete'] = 'guru/delete/$1';
 

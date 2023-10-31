@@ -8,6 +8,7 @@ class Seleksi extends CI_Controller
 	private $view = 'seleksi';
 	private $status = [
 		'PROGRESS',
+		'VERIFIKASI',
 		'LULUS',
 		'TIDAK LULUS',
 	];

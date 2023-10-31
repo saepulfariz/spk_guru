@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Okt 2023 pada 23.21
+-- Waktu pembuatan: 31 Okt 2023 pada 14.59
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -93,17 +93,22 @@ CREATE TABLE `tb_guru` (
   `ttl` varchar(128) NOT NULL,
   `alamat` varchar(256) NOT NULL,
   `status` varchar(128) NOT NULL,
-  `id_user` int(11) NOT NULL
+  `id_user` int(11) NOT NULL,
+  `lampiran_ijazah` varchar(128) DEFAULT NULL,
+  `lampiran_sertifikat` varchar(128) DEFAULT NULL,
+  `lampiran_ktp` varchar(128) DEFAULT NULL,
+  `lampiran_pengalaman` varchar(128) DEFAULT NULL,
+  `catatan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`id`, `nik`, `nama`, `jk`, `agama`, `pendidikan`, `ttl`, `alamat`, `status`, `id_user`) VALUES
-(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROGRESS', 5),
-(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROGRESS', 4),
-(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROGRESS', 3);
+INSERT INTO `tb_guru` (`id`, `nik`, `nama`, `jk`, `agama`, `pendidikan`, `ttl`, `alamat`, `status`, `id_user`, `lampiran_ijazah`, `lampiran_sertifikat`, `lampiran_ktp`, `lampiran_pengalaman`, `catatan`) VALUES
+(1, '2018001', 'Mutia', 'PEREMPUAN', 'ISLAM', 'D3', 'Jakarta, 01 Jan 1970', 'BATAM', 'PROGRESS', 5, NULL, NULL, NULL, NULL, ''),
+(2, '82929', 'WAWAN', 'LAKI-LAKI', 'ISLAM', 'D3', 'subang, 16 Aug 2023', 'subang', 'PROGRESS', 4, 'An_Analysis_of_Grammatical_error_in_writing_personal_letter_(irna)_0802.pdf', NULL, NULL, NULL, ''),
+(3, '2029191', 'Faishal', 'LAKI-LAKI', 'ISLAM', 'SMK', 'bandung, 02 Aug 2023', 'oka', 'PROGRESS', 3, NULL, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -221,7 +226,7 @@ INSERT INTO `tb_user` (`id`, `username`, `password`, `nama_lengkap`, `id_role`) 
 (1, 'admin', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'admin', 1),
 (2, 'kepsek', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'Kepala Sekolah', 2),
 (3, 'faishal', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'faishal', 3),
-(4, 'wawan', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'Wawan', 3),
+(4, 'wawan', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'WAWAN', 3),
 (5, 'mutia', '$2y$10$aWrSWYJb45G1EyEVG5HhC.y.4jamlGGc1DFw1RWyCx2VcCdr83Kle', 'Mutia', 3);
 
 -- --------------------------------------------------------

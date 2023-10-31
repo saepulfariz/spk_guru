@@ -9,7 +9,7 @@
         Edit <?= $title; ?>
       </div>
       <div class="card-body">
-        <form action="<?= base_url($link . '/' . $data['id']); ?>" method="post">
+        <form action="<?= base_url($link . '/' . $data['id']); ?>" method="post" enctype="multipart/form-data">
           <input type='hidden' name='_method' value='PUT' />
           <div class="form-group">
             <label for="nik">NIK</label>
@@ -77,6 +77,25 @@
             <input type="text" class="form-control" id="alamat" name="alamat" placeholder="alamat" value="<?= $data['alamat']; ?>">
           </div>
           <?= form_error('alamat', '<div class="ml-2 text-danger mb-2" style="margin-top: -15px">', '</div>'); ?>
+          <div class="form-group">
+            <label for="lampiran_ijazah">Lampiran Ijazah <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $data['lampiran_ijazah']; ?>">Lihat </a></label>
+            <input type="file" class="form-control" id="lampiran_ijazah" name="lampiran_ijazah" placeholder="lampiran_ijazah">
+          </div>
+
+          <div class="form-group">
+            <label for="lampiran_ktp">Lampiran KTP <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $data['lampiran_ktp']; ?>">Lihat </a></label>
+            <input type="file" class="form-control" id="lampiran_ktp" name="lampiran_ktp" placeholder="lampiran_ktp">
+          </div>
+
+          <div class="form-group">
+            <label for="lampiran_sertifikat">Lampiran Sertifikat <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $data['lampiran_sertifikat']; ?>">Lihat </a></label>
+            <input type="file" class="form-control" id="lampiran_sertifikat" name="lampiran_sertifikat" placeholder="lampiran_sertifikat">
+          </div>
+
+          <div class="form-group">
+            <label for="lampiran_pengalaman">Lampiran Pengalaman Kerja <a target="_blank" href="<?= base_url(); ?>assets/uploads/lampiran/<?= $data['lampiran_pengalaman']; ?>">Lihat </a></label>
+            <input type="file" class="form-control" id="lampiran_pengalaman" name="lampiran_pengalaman" placeholder="lampiran_pengalaman">
+          </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="<?= base_url($link); ?>" class="btn btn-secondary">Batal</a>
         </form>

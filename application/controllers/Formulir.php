@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Formulir extends CI_Controller
 {
-    private $title = 'formulir';
+    private $title = 'Formulir';
     private $link = 'formulir';
     private $view = 'formulir';
     private $jk = [
@@ -78,6 +78,76 @@ class Formulir extends CI_Controller
             $data_user = [
                 'nama_lengkap' => $data['nama']
             ];
+
+            $config['allowed_types']        = 'gif|jpg|png|pdf';
+            $config['upload_path'] = 'assets/uploads/lampiran/';
+
+            $key_name = 'lampiran_ijazah';
+
+            $config['file_name'] = $_FILES[$key_name]['name'];
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload($key_name)) {
+                $uploadData = $this->upload->data();
+                $filename = $uploadData['file_name'];
+                $data[$key_name] = $filename;
+            } else {
+                $this->alert->set('warning', 'Warning', 'Ijazah Failed');
+                redirect($this->link, 'refresh');
+            }
+
+            $key_name = 'lampiran_sertifikat';
+
+            $config['file_name'] = $_FILES[$key_name]['name'];
+
+            $this->load->library('upload', $config);
+
+            if (!empty($_FILES[$key_name]['name'])) {
+                if ($this->upload->do_upload($key_name)) {
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+                    $data[$key_name] = $filename;
+                } else {
+                    $this->alert->set('warning', 'Warning', 'Sertifikat Failed');
+                    redirect($this->link, 'refresh');
+                }
+            }
+
+
+            $key_name = 'lampiran_ktp';
+
+            $config['file_name'] = $_FILES[$key_name]['name'];
+
+            $this->load->library('upload', $config);
+
+            if (!empty($_FILES[$key_name]['name'])) {
+                if ($this->upload->do_upload($key_name)) {
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+                    $data[$key_name] = $filename;
+                } else {
+                    $this->alert->set('warning', 'Warning', 'Ktp Failed');
+                    redirect($this->link, 'refresh');
+                }
+            }
+
+            $key_name = 'lampiran_pengalaman';
+
+            $config['file_name'] = $_FILES[$key_name]['name'];
+
+            $this->load->library('upload', $config);
+
+            if (!empty($_FILES[$key_name]['name'])) {
+                if ($this->upload->do_upload($key_name)) {
+                    $uploadData = $this->upload->data();
+                    $filename = $uploadData['file_name'];
+                    $data[$key_name] = $filename;
+                } else {
+                    $this->alert->set('warning', 'Warning', 'Pengalaman Kerja Failed');
+                    redirect($this->link, 'refresh');
+                }
+            }
 
             $this->user->update($id_user, $data_user);
 

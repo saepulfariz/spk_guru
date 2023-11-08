@@ -8,6 +8,7 @@ class Auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('UserModel', 'user');
+		$this->load->model('GuruModel', 'guru');
 	}
 
 	public function index()
@@ -16,7 +17,7 @@ class Auth extends CI_Controller
 			redirect('dashboard', 'refresh');
 		}
 		$data['title'] = "Login";
-		$this->template->load('template/auth', 'login/index', $data);
+		$this->template->load('template/auth', 'auth/login', $data);
 	}
 
 
@@ -68,6 +69,68 @@ class Auth extends CI_Controller
 				$this->alert->set('warning', 'Warning', 'User Tidak Ada');
 				redirect('auth', 'refresh');
 			}
+		}
+	}
+
+	public function register()
+	{
+		if ($this->session->userdata('id_role')) {
+			redirect('dashboard', 'refresh');
+		}
+		$data['title'] = "Register";
+		$this->template->load('template/auth', 'auth/register', $data);
+	}
+
+	public function proses_register()
+	{
+		$this->form_validation->set_rules('username', 'Username', 'required|is_unique[tb_user.username]');
+		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'required');
+		$this->form_validation->set_rules(
+			'password',
+			'Password',
+			'required',
+			array('required' => 'You must provide a %s.')
+		);
+
+		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required|matches[password]');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->register();
+		} else {
+			$data = [
+				'username' => $this->input->post('username', true),
+				'nama_lengkap' => $this->input->post('nama_lengkap', true),
+				'password' => password_hash($this->input->post('password', true), PASSWORD_DEFAULT),
+				'id_role' => 3,
+			];
+
+			$res = $this->user->save($data);
+
+			if ($data['id_role'] == 3) {
+				$last_id = $this->user->lastId();
+
+				$data_guru = [
+					'nik' => '10001',
+					'jk' => 'LAKI-LAKI',
+					'nama' => $this->input->post('nama_lengkap', true),
+					'agama' => 'ISLAM',
+					'pendidikan' => '',
+					'ttl' => 'Kota, ' . date('d M Y'),
+					'alamat' => '',
+					'status' => 'PROGRESS',
+					'id_user' => $last_id
+				];
+
+				$res = $this->guru->save($data_guru);
+			}
+
+
+			if ($res) {
+				$this->alert->set('success', 'Success', 'Register Success');
+			} else {
+				$this->alert->set('warning', 'Warning', 'Register Failed');
+			}
+			redirect('auth', 'refresh');
 		}
 	}
 

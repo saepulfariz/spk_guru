@@ -26,6 +26,9 @@
                   </div>
                   <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                   <hr>
+                  <div class="text-center">
+                    <a class="" href="<?= base_url('auth/register'); ?>">Register account</a>
+                  </div>
                 </form>
               </div>
             </div>

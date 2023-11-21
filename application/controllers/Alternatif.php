@@ -40,12 +40,20 @@ class Alternatif extends CI_Controller
         if ($this->form_validation->run() == FALSE) {
             $this->new();
         } else {
+            $count_bobot = $this->model->count_bobot();
+
             $data = [
                 'kode' => $this->input->post('kode', true),
                 'nama_alternatif' => $this->input->post('nama_alternatif', true),
                 'attribute' => $this->input->post('attribute', true),
                 'bobot' => $this->input->post('bobot', true),
             ];
+
+            $total_bobot = $count_bobot + $data['bobot'];
+            if ($total_bobot > 1) {
+                $this->alert->set('warning', 'Warning', 'Gak boleh lebih 100');
+                redirect($this->link, 'refresh');
+            }
 
             $res = $this->model->save($data);
             if ($res) {

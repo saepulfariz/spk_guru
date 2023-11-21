@@ -61,4 +61,9 @@ class AlternatifModel extends CI_Model
         $this->db->where($this->primaryKey, $id);
         return $this->db->delete($this->table);
     }
+
+    public function count_bobot()
+    {
+        return round($this->db->select('sum(bobot) as jumlah')->get($this->table)->row_array()['jumlah']);
+    }
 }

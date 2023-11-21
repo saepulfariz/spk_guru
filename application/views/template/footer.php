@@ -46,9 +46,9 @@
       {
         extend: 'excel',
         footer: false,
-        exportOptions: {
-          columns: [0, 1, 2, 3, 4, 5]
-        }
+        // exportOptions: {
+        //   columns: [0, 1, 2, 3, 4, 5]
+        // }
       }
     ],
     "pageLength": 5,

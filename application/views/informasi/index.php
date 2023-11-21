@@ -61,7 +61,11 @@ $model_guru = new GuruModel();
                                         if ($dt) {
                                             $id_sub_alternatif = $dt['id_sub_alternatif'];
                                             $nama_sub = $model_sub_alternatif->find($id_sub_alternatif);
-                                            $nama_sub = $nama_sub['keterangan'];
+                                            if ($dal['kode'] == 'C05' || $dal['kode'] == 'C04') {
+                                                $nama_sub = $nama_sub['nilai'] / 100;
+                                            } else {
+                                                $nama_sub = $nama_sub['keterangan'];
+                                            }
                                         }
                                         ?>
                                         <td><?= $nama_sub; ?></td>
